@@ -1,8 +1,8 @@
 import { get } from 'config';
-import UserRepository from 'api/User/Domain/UserRepository';
+import UserRepository from 'api/users/domain/UserRepository';
 import { connect } from 'mongoose';
-import { UserModel } from 'api/User/Infrastructure/UserMongoModel';
-import User from 'api/User/Domain/User';
+import { UserModel } from 'api/users/infrastructure/UserMongoModel';
+import User from 'api/users/domain/User';
 
 export default class MongoUserRepository implements UserRepository {
   async connect() {
@@ -15,7 +15,6 @@ export default class MongoUserRepository implements UserRepository {
 
   async registerInternaut(internaut: any): Promise<User> {
     this.connect();
-    console.log('internaut: ', internaut);
     const user = new UserModel(internaut);
     await user.save();
     return Promise.resolve(user as User);

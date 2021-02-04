@@ -1,4 +1,4 @@
-import UserRepository from 'api/User/Domain/UserRepository';
+import UserRepository from 'api/users/domain/UserRepository';
 
 export class UserCreator {
   private repository: UserRepository;

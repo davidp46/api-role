@@ -5,7 +5,7 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import logger from 'morgan';
-import UserController from 'api/User/UserController';
+import UserController from 'api/users/UserController';
 
 const app: Application = express();
 

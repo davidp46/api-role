@@ -1,6 +1,6 @@
 import { Document, model, now, Schema } from 'mongoose';
-import User from '../Domain/User';
-import { ROLE } from '../Domain/ROLE';
+import User from '../domain/User';
+import { ROLE } from '../domain/ROLE';
 import hashPassword from 'utils/hashPassword';
 
 interface IUserModel extends User, Document {}

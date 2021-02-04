@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { routeProtected } from 'middlewares';
-import UserFinder from './Application/UserFinder';
-import UserCreator from './Application/UserCreator';
+import UserFinder from './application/UserFinder';
+import UserCreator from './application/UserCreator';
 
 const router = Router();
 
