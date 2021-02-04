@@ -1,4 +1,5 @@
-import { ROLE } from './ROLE';
+import { Community } from 'api/types/Community';
+import { ROLE } from './Roles';
 
 export default interface User {
   id?: string | any;
@@ -9,7 +10,7 @@ export default interface User {
   authenticated: boolean;
   role: ROLE;
   age: number;
-  community: string;
+  community: Community;
   seminarDate: Date;
   startedOn: { number: number; type: string };
   currentCourse: string;

@@ -1,3 +1,4 @@
+import { communities } from 'api/types/Community';
 import UserRepository from 'api/users/domain/UserRepository';
 
 export class UserCreator {
@@ -9,6 +10,10 @@ export class UserCreator {
 
   public register(internaut: any) {
     if (internaut) {
+      internaut = {
+        ...internaut,
+        community: communities[internaut.community],
+      };
       return this.repository.registerInternaut(internaut);
     } else throw new Error('Internaut invalid data');
   }

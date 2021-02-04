@@ -1,6 +1,7 @@
-import { Document, model, now, Schema } from 'mongoose';
+import { Document, model, Schema } from 'mongoose';
 import User from '../domain/User';
-import { ROLE } from '../domain/ROLE';
+import { ROLE } from '../domain/Roles';
+import { POSITIONS } from '../domain/Positions';
 import hashPassword from 'utils/hashPassword';
 
 interface IUserModel extends User, Document {}
@@ -11,14 +12,15 @@ const userSchema = new Schema({
   email: { type: String, unique: true },
   password: String,
   authenticated: { type: Boolean, default: false },
-  role: { type: String, default: ROLE.NORMAL },
+  role: { type: String, default: ROLE.CONSUMER },
   age: { type: Number },
-  community: { type: String },
+  community: { type: Object },
   seminarDate: { type: Date },
-  startedOn: { type: { number: Number, type: String } },
+  startedOn: { type: Number },
   currentCourse: { type: String },
-  createdAt: { type: Date, default: now() },
-  updatedAt: { type: Date, default: now() },
+  position: { type: String, default: POSITIONS.GUEST },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
 userSchema.pre<IUserModel>('save', async function (next) {
